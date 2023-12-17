@@ -13,6 +13,7 @@ namespace BlazorCRUDAppDotNet8.Shared.Repositories
         Task<Developer> UpdateDeveloper(Developer entity);
         Task <Developer> DeleteDeveloper(Guid Id);
         Task<List<Developer>> GetAllDevelopers();
+        Task<IQueryable<Developer>> GetAllDevsForQuickGrid();
         Task<Developer>GetDeveloperById(Guid Id);
     }
 }

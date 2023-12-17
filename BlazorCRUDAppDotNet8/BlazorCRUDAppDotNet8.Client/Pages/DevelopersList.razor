@@ -66,6 +66,7 @@
     {
         IsLoading = true;
         var developers = await DeveloperService.GetAllDevelopers();
+        
         Developers?.Clear();
         if (Developers is null) return;
         foreach (var developer in developers)

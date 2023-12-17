@@ -35,6 +35,13 @@ namespace BlazorCRUDAppDotNet8.Client.Services
             return response!;
         }
 
+        public async Task<IQueryable<Developer>> GetAllDevsForQuickGrid()
+        {
+            var developers = await httpClient.GetAsync("api/Developers/AllDevelopers");
+            var response = await developers.Content.ReadFromJsonAsync<IQueryable<Developer>>();
+            return response!;
+        }
+
         public async Task<Developer> GetDeveloperById(Guid Id)
         {
             var developer = await httpClient.GetAsync($"api/Developers/DeveloperById/{Id}");

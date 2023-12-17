@@ -40,6 +40,13 @@ namespace BlazorCRUDAppDotNet8.Implementations
 
         }
 
+        public async Task<IQueryable<Developer>> GetAllDevsForQuickGrid()
+        {
+            var dbContext = dbContextFactory.CreateDbContext();
+            var devs = dbContext.Developers.AsQueryable();
+            return devs;
+        }
+
         public async Task<Developer> GetDeveloperById(Guid Id)
         {
             using var dbContext = dbContextFactory.CreateDbContext();

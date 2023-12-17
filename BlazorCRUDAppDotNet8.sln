@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCRUDAppDotNet8", "BlazorCRUDAppDotNet8\BlazorCRUDAppDotNet8\BlazorCRUDAppDotNet8.csproj", "{D19CB35A-1EC9-4D53-BDF7-CD0EDC48CB22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCRUDAppDotNet8", "BlazorCRUDAppDotNet8\BlazorCRUDAppDotNet8\BlazorCRUDAppDotNet8.csproj", "{D19CB35A-1EC9-4D53-BDF7-CD0EDC48CB22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCRUDAppDotNet8.Client", "BlazorCRUDAppDotNet8\BlazorCRUDAppDotNet8.Client\BlazorCRUDAppDotNet8.Client.csproj", "{B7B7233D-C0FE-402B-B75B-144907581F33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCRUDAppDotNet8.Client", "BlazorCRUDAppDotNet8\BlazorCRUDAppDotNet8.Client\BlazorCRUDAppDotNet8.Client.csproj", "{B7B7233D-C0FE-402B-B75B-144907581F33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCRUDAppDotNet8.Shared", "BlazorCRUDAppDotNet8.Shared\BlazorCRUDAppDotNet8.Shared.csproj", "{EC7F0316-9980-4C81-BA5A-F26AF4D0A0AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCRUDAppDotNet8.Shared", "BlazorCRUDAppDotNet8.Shared\BlazorCRUDAppDotNet8.Shared.csproj", "{EC7F0316-9980-4C81-BA5A-F26AF4D0A0AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,74 @@
+﻿@page "/quickgrid"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.QuickGrid
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <span>Developer List</span>
+                </div>
+                <div class="card-body">
+                    <QuickGrid Items="@Developers" Pagination="@pagination">
+                        <PropertyColumn Property="@(d => d.FirstName)" Title="First Name" Sortable="true" Align="Align.Left" InitialSortDirection="SortDirection.Ascending" IsDefaultSortColumn="true">
+                            <ColumnOptions>
+                                <div class="search-box">
+                                    <input type="search" autofocus @bind="nameFilter" @bind:event="oninput" placeholder="First Name..." />
+                                </div>
+                            </ColumnOptions>
+                        </PropertyColumn>
+                        <PropertyColumn Title="Last Name" Property="@(d => d.LastName)" Sortable="true" Align="Align.Left" />
+                        <PropertyColumn Property="@(d => d.Email)" Sortable="true" />
+                        <PropertyColumn Property="@(d => d.Experience)" Sortable="true" />
+                        <TemplateColumn Title="Action">
+                            <button @onclick="@(() => Edit(context))" class="btn btn-info">Edit</button>
+                            <button @onclick="@(() => Delete(context))" class="btn btn-danger">Delete</button>
+                        </TemplateColumn>
+                    </QuickGrid>
+                </div>
+                <Paginator State="@pagination" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+    IQueryable<Developer> Developers = Enumerable.Empty<Developer>().AsQueryable();
+
+    PaginationState pagination = new PaginationState { ItemsPerPage = 3 };
+
+    string nameFilter = string.Empty;
+
+    GridSort<Developer> rankSort = GridSort<Developer>
+        .ByDescending(x => x.FirstName)
+        .ThenDescending(x => x.LastName)
+        .ThenDescending(x => x.Email)
+        .ThenDescending(x => x.Experience);
+
+    IQueryable<Developer>? FilteredItems => Developers?.Where(x => x.FirstName!.Contains(nameFilter, StringComparison.CurrentCultureIgnoreCase));
+
+    private async Task LoadDevelopers()
+    {
+        Developers = await DeveloperService.GetAllDevsForQuickGrid();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDevelopers();
+    }
+
+    private void Edit(Developer model)
+    {
+        NavigationManager.NavigateTo($"manage-developer/{model.Id}");
+    }
+
+    private async Task Delete(Developer model)
+    {
+        var developer = await DeveloperService.DeleteDeveloper(model.Id);
+        await LoadDevelopers();
+    }
+
+
+
+}

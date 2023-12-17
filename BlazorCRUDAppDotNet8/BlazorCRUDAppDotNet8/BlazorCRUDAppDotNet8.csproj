@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BlazorCRUDAppDotNet8.Shared\BlazorCRUDAppDotNet8.Shared.csproj" />
     <ProjectReference Include="..\BlazorCRUDAppDotNet8.Client\BlazorCRUDAppDotNet8.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />

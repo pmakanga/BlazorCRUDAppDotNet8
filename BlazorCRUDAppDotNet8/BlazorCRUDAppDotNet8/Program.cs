@@ -20,6 +20,8 @@ builder.Services.AddDbContextFactory<DataContext>(options =>
 
 builder.Services.AddScoped<IDevelopersRepository, DevelopersRepository>();
 
+builder.Services.AddQuickGridEntityFrameworkAdapter();
+
 builder.Services.AddScoped(http => new HttpClient
 {
     BaseAddress = new Uri(builder.Configuration.GetSection("BaseAddress").Value!)
